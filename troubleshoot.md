@@ -30,6 +30,8 @@ ggplot(scores, aes(x = PC1, y = PC2, label = GroupName)) +
   ylab("Principal Component 2") + 
   ggtitle("PCA Plot with Group Names") +
   theme_minimal()
+
+  
   <img width="716" alt="BAL_PCA" src="https://github.com/zhany283/Imagenplots/assets/130387837/8868e158-78e4-4f1f-9604-d271389c0a02">
 
 
