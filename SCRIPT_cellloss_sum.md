@@ -20,7 +20,7 @@ ggplot(data, aes(x = Date, y = cellloss, color = Viability)) +
   geom_point(size = 2.5, alpha = 7) +
   theme_minimal() +
   labs(title = "Dotplot of cell loss by sample ID",
-       x = "Sample ID", y = "Cell Loss (%)") +
+       x = "Date", y = "Cell Loss (%)") +
       ylim(0.1,1)+
   #geom_text(aes(label = Sample_ID), vjust = "inward", hjust = "inward", size = 3, check_overlap = FALSE) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
@@ -31,7 +31,7 @@ ggplot(data, aes(x = Date, y = cellloss, color = Viability)) +
   geom_point(size = 2.5, alpha = 7) +
   theme_minimal() +
   labs(title = "Dotplot of cell loss by sample ID",
-       x = "Sample ID", y = "Cell Loss (%)") +
+       x = "Date", y = "Cell Loss (%)") +
       ylim(0.1,1)+
   #geom_text(aes(label = Sample_ID), vjust = "inward", hjust = "inward", size = 3, check_overlap = FALSE) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
