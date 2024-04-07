@@ -23,7 +23,18 @@ ggplot(data, aes(x = Date, y = cellloss, color = Viability)) +
        x = "Sample ID", y = "Cell Loss (%)") +
       ylim(0.1,1)+
   #geom_text(aes(label = Sample_ID), vjust = "inward", hjust = "inward", size = 3, check_overlap = FALSE) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  geom_smooth(method = "lm")
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ![image](https://github.com/zhany283/Imagenplots/assets/130387837/cb3b565b-31bf-45bd-b590-e17950f8fda6)
 
+# Add Trend line
+ggplot(data, aes(x = Date, y = cellloss, color = Viability)) +
+  geom_point(size = 2.5, alpha = 7) +
+  theme_minimal() +
+  labs(title = "Dotplot of cell loss by sample ID",
+       x = "Sample ID", y = "Cell Loss (%)") +
+      ylim(0.1,1)+
+  #geom_text(aes(label = Sample_ID), vjust = "inward", hjust = "inward", size = 3, check_overlap = FALSE) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  geom_smooth(method = "lm")
+
+  ![image](https://github.com/zhany283/Imagenplots/assets/130387837/58d89f68-1b17-4ea1-88ac-b67a814edf8c)
