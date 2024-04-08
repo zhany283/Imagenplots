@@ -45,3 +45,30 @@ ggplot(data, aes(x = Date, y = cellloss, colour = Viability)) +
 
 ![image](https://github.com/zhany283/Imagenplots/assets/130387837/eb9b50cd-2250-4aa3-9f6a-912ed9170c4a)
 
+
+
+# Add median line for each timeframe and label
+ median_cellloss_per_period <- data.frame(
+   Period = c('2021-2022', '2022-2023', '2023-2024'),
+   MedianCellLoss = c(0.35, 0.55, 0.62), 
+   StartDate = as.Date(c('2021-01-01', '2022-01-01', '2023-01-01')),
+   EndDate = as.Date(c('2021-12-31', '2022-12-31', '2023-12-31'))
+ )
+
+ median_cellloss_per_period$StartDate <- as.POSIXct(median_cellloss_per_period$StartDate, format = "%Y-%m-%d", tz = "UTC")
+ median_cellloss_per_period$EndDate <- as.POSIXct(median_cellloss_per_period$EndDate, format = "%Y-%m-%d", tz = "UTC") + lubridate::days(1) - seconds(1) 
+
+ggplot(data, aes(x = Date, y = cellloss)) +
+  geom_point(aes(colour = Viability), size = 2.5, alpha = 1) + 
+  theme_minimal() +
+  labs(title = "SCRIPT Dotplot of cell loss over time", x = "Date", y = "Cell Loss (%)") +
+  ylim(0.1, 1) +
+  scale_colour_gradient(low = "darkred", high = "cyan") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  geom_smooth(method = "lm", aes(colour = Viability)) +
+  geom_segment(data = median_cellloss_per_period, aes(x = StartDate, xend = EndDate, y = MedianCellLoss, yend = MedianCellLoss), colour = "black", linetype = "dashed") +
+  geom_text(data = median_cellloss_per_period, aes(x = EndDate, y = MedianCellLoss, label = Period), hjust = 1, vjust = -0.5, size = 5)
+
+![image](https://github.com/zhany283/Imagenplots/assets/130387837/6220dd82-4e78-4737-9180-c59cd6fe40c1)
+
+
