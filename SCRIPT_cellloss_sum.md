@@ -60,14 +60,8 @@ median_cellloss_per_period <- data %>%
 
 print(median_cellloss_per_period)
 
-> print(median_cellloss_per_period)
-# A tibble: 4 × 2
-  Period    MedianCellLoss
-  <fct>              <dbl>
-1 2021-2022           0.35
-2 2022-2023           0.55
-3 2023-2024           0.62
-4 NA                  0.35
+![image](https://github.com/zhany283/Imagenplots/assets/130387837/3ba076a8-b425-46b1-a355-cf14ce68bf9b)
+
 
 
 
