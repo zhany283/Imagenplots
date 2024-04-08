@@ -47,6 +47,33 @@ ggplot(data, aes(x = Date, y = cellloss, colour = Viability)) +
 
 
 
+
+# Median for each year
+data$Period <- cut(data$Date,
+                   breaks = as.POSIXct(c('2021-01-01', '2022-01-01', '2023-01-01', '2024-01-01')),
+                   labels = c('2021-2022', '2022-2023', '2023-2024'),
+                   include.lowest = TRUE)
+
+median_cellloss_per_period <- data %>%
+  group_by(Period) %>%
+  summarize(MedianCellLoss = median(cellloss, na.rm = TRUE))
+
+print(median_cellloss_per_period)
+
+> print(median_cellloss_per_period)
+# A tibble: 4 × 2
+  Period    MedianCellLoss
+  <fct>              <dbl>
+1 2021-2022           0.35
+2 2022-2023           0.55
+3 2023-2024           0.62
+4 NA                  0.35
+
+
+
+
+
+
 # Add median line for each timeframe and label
  median_cellloss_per_period <- data.frame(
    Period = c('2021-2022', '2022-2023', '2023-2024'),
