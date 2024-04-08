@@ -48,11 +48,21 @@ ggplot(data, aes(x = Date, y = cellloss, colour = Viability)) +
 
 
 
-# Median for each year; NA stands for samples before 2021
+# Median for each year;
 data$Period <- cut(data$Date,
                    breaks = as.POSIXct(c('2021-01-01', '2022-01-01', '2023-01-01', '2024-01-01')),
                    labels = c('2021-2022', '2022-2023', '2023-2024'),
                    include.lowest = TRUE)
+
+data$Period <- factor(data$Period, levels = c(levels(data$Period), "before 2021"))
+
+data$Period[is.na(data$Period)] <- "before 2021"
+
+median_cellloss_per_period <- data %>%
+  group_by(Period) %>%
+  summarize(MedianCellLoss = median(cellloss, na.rm = TRUE))
+
+data$Period <- factor(data$Period, levels = c("before 2021", "2021-2022", "2022-2023", "2023-2024"))
 
 median_cellloss_per_period <- data %>%
   group_by(Period) %>%
@@ -60,7 +70,8 @@ median_cellloss_per_period <- data %>%
 
 print(median_cellloss_per_period)
 
-![image](https://github.com/zhany283/Imagenplots/assets/130387837/3ba076a8-b425-46b1-a355-cf14ce68bf9b)
+![image](https://github.com/zhany283/Imagenplots/assets/130387837/6a856d82-cf8b-4bfe-91bf-1b7d292dfba2)
+
 
 
 
