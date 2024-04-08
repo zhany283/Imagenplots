@@ -101,6 +101,9 @@ ggplot(data, aes(x = Date, y = cellloss)) +
   geom_segment(data = median_cellloss_per_period, aes(x = StartDate, xend = EndDate, y = MedianCellLoss, yend = MedianCellLoss), colour = "black", linetype = "dashed") +
   geom_text(data = median_cellloss_per_period, aes(x = EndDate, y = MedianCellLoss, label = Period), hjust = 1, vjust = -0.5, size = 5)
 
+  ![image](https://github.com/zhany283/Imagenplots/assets/130387837/f881f38b-f507-46f8-9cb9-a835b2f66524)
+
+
 ![image](https://github.com/zhany283/Imagenplots/assets/130387837/6220dd82-4e78-4737-9180-c59cd6fe40c1)
 
 
