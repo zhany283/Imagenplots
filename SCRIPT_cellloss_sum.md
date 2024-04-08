@@ -48,7 +48,7 @@ ggplot(data, aes(x = Date, y = cellloss, colour = Viability)) +
 
 
 
-# Median for each year
+# Median for each year; NA stands for samples before 2021
 data$Period <- cut(data$Date,
                    breaks = as.POSIXct(c('2021-01-01', '2022-01-01', '2023-01-01', '2024-01-01')),
                    labels = c('2021-2022', '2022-2023', '2023-2024'),
