@@ -117,6 +117,12 @@ print(shapiro_test_results)
 
 ![image](https://github.com/zhany283/Imagenplots/assets/130387837/6299dd2d-dc4d-4ad1-b37e-6c8cdb4b652d)
 
+#Total number for 2022-2023 and 2023-2024
+sample_counts <- data_filtered %>%
+  filter(Period %in% c("2022-2023", "2023-2024")) %>%
+  group_by(Period) %>%
+  summarize(TotalSamples = n())
+![image](https://github.com/zhany283/Imagenplots/assets/130387837/8243d78a-0c7a-4f4a-b395-877811f705b9)
 
 
 
