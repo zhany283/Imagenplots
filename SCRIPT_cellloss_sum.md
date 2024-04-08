@@ -107,12 +107,16 @@ ggplot(data, aes(x = Date, y = cellloss)) +
 ![image](https://github.com/zhany283/Imagenplots/assets/130387837/6220dd82-4e78-4737-9180-c59cd6fe40c1)
 
 
-# ANOVA attempt
+# Anova analysis
+# remove negative value
+data_filtered <- data %>%
+  filter(cellloss >= 0)
 # Shapiro-test to verify normal distribution
-shapiro_test_results <- by(data$cellloss, data$Period, shapiro.test)
+shapiro_test_results <- by(data_filtered$cellloss, data_filtered$Period, shapiro.test)
 print(shapiro_test_results)
 
-![image](https://github.com/zhany283/Imagenplots/assets/130387837/e478bb79-e893-4dfc-ac86-548acabe5101)
+![image](https://github.com/zhany283/Imagenplots/assets/130387837/6299dd2d-dc4d-4ad1-b37e-6c8cdb4b652d)
+
 
 
 
