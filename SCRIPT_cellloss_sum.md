@@ -118,3 +118,28 @@ print(shapiro_test_results)
 ![image](https://github.com/zhany283/Imagenplots/assets/130387837/6299dd2d-dc4d-4ad1-b37e-6c8cdb4b652d)
 
 
+
+##### Combined
+data_combined <- read.csv("/Users/ethan/OneDrive/文档/Combined.csv")
+data_combined$Date <- as.Date(data_combined$Date, format = "%Y-%m-%d")
+
+data_combined_filtered <- data_combined %>% 
+  filter(cellloss >= 0, Sorted_cell_num <= 500000)
+
+
+ggplot(data_combined_filtered, aes(x = Date, y = cellloss, colour = Study)) +
+  geom_point(size = 2.5, alpha = 1) +
+  theme_minimal() +
+  labs(title = "Dotplot of cell loss over time", x = "Date", y = "Cell Loss (%)") +
+  ylim(0.1, 1) +
+  scale_colour_brewer(palette = "Set1") + # For discrete variables
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  geom_smooth(method = "lm")
+
+
+![image](https://github.com/zhany283/Imagenplots/assets/130387837/fbf8cbeb-8c2e-4ea9-ac9a-6709dc9589da)
+
+
+
+
+
