@@ -140,6 +140,8 @@ ggplot(data_combined_filtered, aes(x = Date, y = cellloss, colour = Study)) +
 ![image](https://github.com/zhany283/Imagenplots/assets/130387837/fbf8cbeb-8c2e-4ea9-ac9a-6709dc9589da)
 
 
+###### GLTR cell loss vs date group in viability
+![image](https://github.com/zhany283/Imagenplots/assets/130387837/24fa42ed-735e-499e-b541-cc208235bee2)
 
 
 
