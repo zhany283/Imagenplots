@@ -149,4 +149,8 @@ ggplot(data_combined_filtered, aes(x = Date, y = cellloss, colour = Study)) +
 ![image](https://github.com/zhany283/Imagenplots/assets/130387837/b03299a0-f664-4bdb-a6c3-609627abf902)
 ![image](https://github.com/zhany283/Imagenplots/assets/130387837/52868c75-b1f8-490f-abc4-05ce171d39ef)
 
+# SCRIPT group by sorted cell num
+![image](https://github.com/zhany283/Imagenplots/assets/130387837/46e9c95a-94a1-41f7-b0d5-77f164082738)
+![image](https://github.com/zhany283/Imagenplots/assets/130387837/2910be3b-87aa-4dc0-8381-2e504b08296f)
+
 
