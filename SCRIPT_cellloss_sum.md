@@ -154,3 +154,32 @@ ggplot(data_combined_filtered, aes(x = Date, y = cellloss, colour = Study)) +
 ![image](https://github.com/zhany283/Imagenplots/assets/130387837/2910be3b-87aa-4dc0-8381-2e504b08296f)
 
 
+
+# corelation heatmap
+![image](https://github.com/zhany283/Imagenplots/assets/130387837/a4266f31-9204-4023-bd8a-a80aecf60114)
+library(reshape2)
+
+data_subset <- data[, c("cellloss", "Sorted_cell_num", "Viability")]
+cor_matrix <- cor(data_subset, use = "complete.obs")  # Use "complete.obs" to handle missing values
+
+melted_cor_matrix <- melt(cor_matrix)
+
+ggplot(data = melted_cor_matrix, aes(x = Var1, y = Var2, fill = value)) +
+  geom_tile(color = "white") +
+  scale_fill_gradient2(low = "blue", high = "red", mid = "white", 
+                       midpoint = 0, limit = c(-1,1), space = "Lab", 
+                       name="Pearson\nCorrelation") +
+  theme_minimal() + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, 
+                                   size = 12, hjust = 1),
+        axis.text.y = element_text(size = 12)) +
+  geom_text(aes(label = sprintf("%.2f", value)), vjust = 1, 
+            color = "black", size = 4) +
+  labs(x = '', y = '') +
+  coord_fixed()
+
+
+
+
+
+
